@@ -91,6 +91,33 @@ document.querySelectorAll('[data-action="share"]').forEach((button) => {
   });
 });
 
+document.querySelectorAll('[data-action="share-requisites"]').forEach((button) => {
+  button.addEventListener('click', async () => {
+    const lines = [...document.querySelectorAll('.requisites dl > div')].map((row) => {
+      const label = row.querySelector('dt')?.textContent.trim();
+      const value = row.querySelector('dd span')?.textContent.trim();
+      return label && value ? `${label}: ${value}` : null;
+    }).filter(Boolean);
+    const text = lines.join('\n');
+
+    try {
+      if (navigator.share) {
+        await navigator.share({ title: 'Реквизиты документа', text });
+      } else if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(text);
+        button.title = 'Реквизиты скопированы';
+        window.setTimeout(() => { button.title = ''; }, 1800);
+      } else {
+        throw new Error('Share and clipboard APIs are unavailable');
+      }
+    } catch (error) {
+      if (error.name !== 'AbortError') {
+        console.error('Requisites sharing failed:', error);
+      }
+    }
+  });
+});
+
 document.querySelectorAll('[data-copy]').forEach((button) => {
   button.addEventListener('click', async () => {
     const value = button.closest('dd').querySelector('span').textContent.trim();

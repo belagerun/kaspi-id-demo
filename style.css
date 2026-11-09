@@ -176,19 +176,19 @@ main {
 
 .requisites { margin: 0 16px; padding: 4px 16px 0; border-radius: 8px; background: #fff; }
 .requisites dl { margin: 0; }
-.requisites dl div { padding: 12px 0; border-bottom: 1px solid #eceef0; }
+.requisites dl div { padding: 16px 0; border-bottom: 1px solid #eceef0; }
 .requisites dl div:last-child { border-bottom: 0; }
-.requisites dt { margin-bottom: 4px; color: #747980; font-size: 12px; }
+.requisites dt { margin-bottom: 7px; color: #85898e; font-size: 14px; }
 .requisites dd {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
   margin: 0;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 550;
 }
-.requisites dd span { min-width: 0; overflow-wrap: anywhere; font-size: 14px; }
+.requisites dd span { min-width: 0; overflow-wrap: anywhere; font-size: 16px; }
 .copy-button {
   display: grid;
   flex: 0 0 36px;
@@ -210,7 +210,7 @@ main {
   padding-left: 16px;
 }
 
-.requisites dd span { font-size: 13px !important; }
+.requisites dd span { font-size: 16px !important; }
 .requisites .copy-button,
 .requisites .copy-button.copied,
 .requisites .copy-button:active,
