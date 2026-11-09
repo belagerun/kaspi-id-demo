@@ -102,9 +102,9 @@ main {
 
 .identity-image {
   display: block;
-  width: min(calc(100% - 64px), 440px);
+  width: min(calc(100% - 32px), 520px);
   height: auto;
-  max-height: 48dvh;
+  max-height: none;
   margin: 8px auto 0;
   object-fit: contain;
   object-position: top center;
@@ -206,7 +206,7 @@ main {
   body { padding-top: 24px; }
   .topbar { border-radius: 8px 8px 0 0; }
   main { min-height: 0; overflow: hidden; border-radius: 0 0 8px 8px; background: #fff; box-shadow: 0 1px 5px #00000012; }
-  .identity-image { width: min(calc(100% - 64px), 440px); max-height: 48vh; margin-top: 8px; }
+  .identity-image { width: min(calc(100% - 32px), 520px); max-height: none; margin-top: 8px; }
   .actions { padding: 14px 24px; }
   .view[data-panel="document"] .actions,
   .view[data-panel="requisites"] .actions { padding: 14px 24px; }
