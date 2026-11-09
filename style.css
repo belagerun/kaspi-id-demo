@@ -114,22 +114,22 @@ main {
 .actions {
   display: grid;
   gap: 10px;
-  margin-top: auto;
-  padding: 16px 16px calc(18px + env(safe-area-inset-bottom));
+  position: fixed;
+  z-index: 20;
+  right: 0;
+  bottom: calc(18px + env(safe-area-inset-bottom));
+  left: 50%;
+  width: min(100%, 560px);
+  margin: 0;
+  padding: 14px 16px;
+  transform: translateX(-50%);
   background: #fff;
+  border-top: 1px solid #f0f0f0;
 }
 
 .view[data-panel="document"] .actions,
 .view[data-panel="requisites"] .actions {
   position: fixed;
-  z-index: 5;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: min(100%, 560px);
-  margin: 0 auto;
-  padding: 14px 16px calc(22px + env(safe-area-inset-bottom));
-  border-top: 1px solid #f0f0f0;
 }
 
 .primary, .secondary {
@@ -207,7 +207,7 @@ main {
   .topbar { border-radius: 8px 8px 0 0; }
   main { min-height: 0; overflow: hidden; border-radius: 0 0 8px 8px; background: #fff; box-shadow: 0 1px 5px #00000012; }
   .identity-image { width: min(calc(100% - 64px), 440px); max-height: 48vh; margin-top: 8px; }
-  .actions { padding: 16px 24px 20px; }
+  .actions { padding: 14px 24px; }
   .view[data-panel="document"] .actions,
-  .view[data-panel="requisites"] .actions { padding: 14px 24px 22px; }
+  .view[data-panel="requisites"] .actions { padding: 14px 24px; }
 }
