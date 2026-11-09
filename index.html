@@ -9,12 +9,12 @@
   <meta name="document-image" content="udost.jpeg">
   <meta name="pdf-file" content="060131500086-20250603111642292.pdf">
   <title>Удостоверение личности</title>
-  <link rel="stylesheet" href="./style.css?v=20261110-10">
+  <link rel="stylesheet" href="./style.css?v=20261110-11">
   <link rel="icon" href="./favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="./apple-touch-icon.png">
   <link rel="manifest" href="./manifest.webmanifest">
-  <script src="./script.js?v=20261110-10" defer></script>
-  <script src="./pwa.js?v=20261110-10" defer></script>
+  <script src="./script.js?v=20261110-11" defer></script>
+  <script src="./pwa.js?v=20261110-11" defer></script>
 </head>
 <body>
   <header class="topbar">
@@ -31,7 +31,9 @@
     </nav>
 
     <section class="view" data-panel="document">
-      <img class="identity-image" src="./udost.jpeg" alt="Демонстрационное удостоверение личности" fetchpriority="high">
+      <div class="document-viewport" aria-label="Удостоверение. Разведите пальцы, чтобы увеличить. Дважды коснитесь для масштабирования.">
+        <img class="identity-image" src="./udost.jpeg" alt="Демонстрационное удостоверение личности" fetchpriority="high">
+      </div>
       <div class="actions">
         <button class="primary" type="button" data-action="show-qr"><img src="./qr-icon.jpeg" alt="">Предъявить документ</button>
         <button class="secondary" type="button" data-action="share"><img src="./send-icon.jpeg" alt="">Отправить документ</button>

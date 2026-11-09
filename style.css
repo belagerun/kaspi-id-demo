@@ -100,16 +100,34 @@ main {
 
 .view[data-panel="requisites"] { padding-bottom: calc(148px + env(safe-area-inset-bottom)); }
 
+.document-viewport {
+  position: relative;
+  display: grid;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  place-items: start center;
+  overflow: hidden;
+  padding: 8px 12px 0;
+  background: #fff;
+  touch-action: pan-y;
+}
+
 .identity-image {
   display: block;
-  width: calc(100vw - 24px);
-  max-width: 560px;
+  width: min(100%, 560px);
   height: auto;
-  max-height: none;
-  margin: 8px auto 0;
+  max-width: none;
+  margin: 0 auto;
+  border-radius: 4px;
   object-fit: contain;
   object-position: top center;
-  border-radius: 4px;
+  transform: scale(var(--document-scale, 1));
+  transform-origin: center top;
+  will-change: transform;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .actions {
@@ -207,7 +225,8 @@ main {
   body { padding-top: 24px; }
   .topbar { border-radius: 8px 8px 0 0; }
   main { min-height: 0; overflow: hidden; border-radius: 0 0 8px 8px; background: #fff; box-shadow: 0 1px 5px #00000012; }
-  .identity-image { width: min(calc(100% - 24px), 520px); max-width: 520px; max-height: none; margin-top: 8px; }
+  .document-viewport { padding-inline: 12px; }
+  .identity-image { width: min(100%, 520px); }
   .actions { padding: 14px 24px; }
   .view[data-panel="document"] .actions,
   .view[data-panel="requisites"] .actions { padding: 14px 24px; }
