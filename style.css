@@ -15,7 +15,11 @@ html, body {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   min-width: 320px;
+  height: 100vh;
+  height: 100dvh;
   min-height: 100vh;
   min-height: 100dvh;
   margin: 0;
@@ -51,7 +55,8 @@ h1 { margin: 0; font-size: 16px; font-weight: 650; text-align: center; }
 
 main {
   display: flex;
-  min-height: calc(100dvh - 52px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+  flex: 1 1 auto;
+  min-height: 0;
   flex-direction: column;
   width: min(100%, 560px);
   margin: 0 auto;
@@ -95,7 +100,7 @@ main {
   display: block;
   width: min(calc(100% - 64px), 440px);
   height: auto;
-  max-height: 52dvh;
+  max-height: 48dvh;
   margin: 8px auto 0;
   object-fit: contain;
   object-position: top center;
@@ -183,7 +188,7 @@ main {
 @media (min-width: 600px) {
   body { padding-top: 24px; }
   .topbar { border-radius: 8px 8px 0 0; }
-  main { min-height: calc(100dvh - 76px); overflow: hidden; border-radius: 0 0 8px 8px; background: #fff; box-shadow: 0 1px 5px #00000012; }
-  .identity-image { width: min(calc(100% - 64px), 440px); max-height: 52vh; margin-top: 8px; }
+  main { min-height: 0; overflow: hidden; border-radius: 0 0 8px 8px; background: #fff; box-shadow: 0 1px 5px #00000012; }
+  .identity-image { width: min(calc(100% - 64px), 440px); max-height: 48vh; margin-top: 8px; }
   .actions { padding: 16px 24px 20px; }
 }
