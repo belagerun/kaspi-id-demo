@@ -44,3 +44,36 @@ document.querySelectorAll('[data-action="share"]').forEach((button) => {
     }
   });
 });
+
+document.querySelectorAll('[data-copy]').forEach((button) => {
+  button.addEventListener('click', async () => {
+    const value = button.closest('dd').querySelector('span').textContent.trim();
+    try {
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(value);
+      } else {
+        const field = document.createElement('textarea');
+        field.value = value;
+        field.setAttribute('readonly', '');
+        field.style.position = 'fixed';
+        field.style.opacity = '0';
+        document.body.append(field);
+        field.select();
+        const copied = document.execCommand('copy');
+        field.remove();
+        if (!copied) throw new Error('Clipboard copy was denied');
+      }
+
+      button.title = 'Скопировано';
+      button.setAttribute('aria-label', 'Скопировано: ' + value);
+      button.classList.add('copied');
+      window.setTimeout(() => {
+        button.title = 'Скопировать';
+        button.classList.remove('copied');
+      }, 1400);
+    } catch (error) {
+      console.error('Could not copy value:', error);
+      button.title = 'Не удалось скопировать';
+    }
+  });
+});
