@@ -176,20 +176,21 @@ main {
 
 .requisites { margin: 0 16px; padding: 4px 24px 0; border-radius: 8px; background: #fff; }
 .requisites dl { margin: 0; }
-.requisites dl div { position: relative; padding: 10px 0 12px; border-bottom: 0; }
+.requisites dl div { position: relative; padding: 7px 0 6px; border-bottom: 0; }
 .requisites dl div:last-child { border-bottom: 0; }
-.requisites dt { margin: 0 52px 10px 0; color: #85898e; font-size: 16px; }
+.requisites dt { margin: 0 52px 4px 0; color: #85898e; font-size: 16px; line-height: 1.2; }
 .requisites dd {
   display: block;
   margin: 0;
   font-size: 20px;
+  line-height: 1.25;
   font-weight: 550;
 }
-.requisites dd span { min-width: 0; overflow-wrap: anywhere; font-size: 20px; }
+.requisites dd span { min-width: 0; overflow-wrap: anywhere; font-size: 20px; line-height: 1.25; }
 .copy-button {
   display: grid;
   position: absolute;
-  top: 10px;
+  top: 7px;
   right: 0;
   flex: 0 0 42px;
   width: 42px;
