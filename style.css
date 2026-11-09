@@ -74,10 +74,10 @@ main { width: min(100%, 560px); margin: 0 auto; padding-bottom: 24px; }
 
 .identity-image {
   display: block;
-  width: calc(100% - 24px);
+  width: min(calc(100% - 64px), 440px);
   height: auto;
-  max-height: 58dvh;
-  margin: 0 auto;
+  max-height: 52dvh;
+  margin: 8px auto 0;
   object-fit: contain;
   object-position: top center;
   border-radius: 4px;
@@ -136,6 +136,6 @@ main { width: min(100%, 560px); margin: 0 auto; padding-bottom: 24px; }
   body { padding-top: 24px; }
   .topbar { border-radius: 8px 8px 0 0; }
   main { overflow: hidden; border-radius: 0 0 8px 8px; background: #fff; box-shadow: 0 1px 5px #00000012; }
-  .identity-image { width: min(calc(100% - 32px), 440px); max-height: 56vh; margin-top: 8px; }
+  .identity-image { width: min(calc(100% - 64px), 440px); max-height: 52vh; margin-top: 8px; }
   .actions { padding: 16px 24px 20px; }
 }
