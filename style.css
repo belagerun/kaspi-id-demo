@@ -83,7 +83,13 @@ main {
 
 .view[hidden] { display: none; }
 
-.view { background: #fff; }
+.view {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  flex-direction: column;
+  background: #fff;
+}
 
 .identity-image {
   display: block;
@@ -100,7 +106,7 @@ main {
   display: grid;
   gap: 10px;
   margin-top: auto;
-  padding: 16px 16px 12px;
+  padding: 16px 16px calc(20px + env(safe-area-inset-bottom));
   background: #fff;
 }
 
@@ -122,7 +128,7 @@ main {
 .secondary { border: 1px solid #83b5ed; color: #1769c2; background: #fff; }
 .primary img, .secondary img { width: 20px; height: 22px; object-fit: contain; }
 
-.requisites { margin: 0 16px; padding: 4px 16px; border-radius: 8px; background: #fff; }
+.requisites { margin: 0 16px; padding: 4px 16px 0; border-radius: 8px; background: #fff; }
 .requisites dl { margin: 0; }
 .requisites dl div { padding: 12px 0; border-bottom: 1px solid #eceef0; }
 .requisites dl div:last-child { border-bottom: 0; }
@@ -151,7 +157,7 @@ main {
 }
 .copy-button svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .copy-button.copied { color: #18824a; background: #eef8f2; }
-.requisites .actions { margin: 0 -16px; }
+.requisites .actions { margin: auto -16px 0; }
 
 .qr-dialog {
   position: fixed;
