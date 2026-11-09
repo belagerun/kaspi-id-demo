@@ -1,6 +1,6 @@
-const rootPath = new URL('../', document.querySelector('link[rel="manifest"]').href);
+const appBase = new URL('./', document.querySelector('link[rel="manifest"]').href);
 const pdfName = document.querySelector('meta[name="pdf-file"]').content;
-const pdfUrl = new URL(pdfName, rootPath).href;
+const pdfUrl = new URL(pdfName, appBase).href;
 const qrDialog = document.querySelector('.qr-dialog');
 
 document.querySelectorAll('[data-view]').forEach((button) => {
