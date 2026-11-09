@@ -58,7 +58,7 @@ main {
   flex: 1 1 auto;
   min-height: 0;
   flex-direction: column;
-  width: 100%;
+  width: min(100%, 560px);
   margin: 0 auto;
   padding-bottom: calc(148px + env(safe-area-inset-bottom));
 }
@@ -102,8 +102,8 @@ main {
 
 .identity-image {
   display: block;
-  width: calc(100% - 24px);
-  max-width: none;
+  width: calc(100vw - 24px);
+  max-width: 560px;
   height: auto;
   max-height: none;
   margin: 8px auto 0;
@@ -207,7 +207,7 @@ main {
   body { padding-top: 24px; }
   .topbar { border-radius: 8px 8px 0 0; }
   main { min-height: 0; overflow: hidden; border-radius: 0 0 8px 8px; background: #fff; box-shadow: 0 1px 5px #00000012; }
-  .identity-image { width: calc(100% - 24px); max-width: none; max-height: none; margin-top: 8px; }
+  .identity-image { width: min(calc(100% - 24px), 520px); max-width: 520px; max-height: none; margin-top: 8px; }
   .actions { padding: 14px 24px; }
   .view[data-panel="document"] .actions,
   .view[data-panel="requisites"] .actions { padding: 14px 24px; }
