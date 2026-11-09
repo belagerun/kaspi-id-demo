@@ -60,7 +60,7 @@ main {
   flex-direction: column;
   width: min(100%, 560px);
   margin: 0 auto;
-  padding-bottom: calc(148px + env(safe-area-inset-bottom));
+  padding-bottom: 0;
 }
 
 .tabs {
@@ -96,9 +96,8 @@ main {
   background: #fff;
 }
 
-.view[data-panel="document"] { padding-bottom: calc(148px + env(safe-area-inset-bottom)); }
-
-.view[data-panel="requisites"] { padding-bottom: calc(148px + env(safe-area-inset-bottom)); }
+.view[data-panel="document"],
+.view[data-panel="requisites"] { padding-bottom: 0; }
 
 .document-viewport {
   position: relative;
@@ -138,7 +137,7 @@ main {
   position: fixed;
   z-index: 20;
   right: 0;
-  bottom: calc(18px + env(safe-area-inset-bottom));
+  bottom: calc(14px + env(safe-area-inset-bottom));
   left: 50%;
   width: min(100%, 560px);
   margin: 0;
@@ -256,4 +255,9 @@ main {
   .actions { padding: 14px 24px; }
   .view[data-panel="document"] .actions,
   .view[data-panel="requisites"] .actions { padding: 14px 24px; }
+}
+
+@media (display-mode: standalone) {
+  body { min-height: 100dvh; height: 100dvh; }
+  .document-viewport { min-height: 0; }
 }
