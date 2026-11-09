@@ -2,6 +2,52 @@ const appBase = new URL('./', document.querySelector('link[rel="manifest"]').hre
 const pdfName = document.querySelector('meta[name="pdf-file"]').content;
 const pdfUrl = new URL(pdfName, appBase).href;
 const qrDialog = document.querySelector('.qr-dialog');
+const documentViewport = document.querySelector('.document-viewport');
+const documentImage = document.querySelector('.identity-image');
+
+if (documentViewport && documentImage) {
+  let scale = 1;
+  let pinchStartDistance = 0;
+  let pinchStartScale = 1;
+  let lastTap = 0;
+
+  const setScale = (nextScale) => {
+    scale = Math.min(3, Math.max(1, nextScale));
+    documentImage.style.setProperty('--document-scale', scale);
+  };
+
+  const touchDistance = (touches) => {
+    const dx = touches[0].clientX - touches[1].clientX;
+    const dy = touches[0].clientY - touches[1].clientY;
+    return Math.hypot(dx, dy);
+  };
+
+  documentViewport.addEventListener('touchstart', (event) => {
+    if (event.touches.length === 2) {
+      pinchStartDistance = touchDistance(event.touches);
+      pinchStartScale = scale;
+    }
+  }, { passive: true });
+
+  documentViewport.addEventListener('touchmove', (event) => {
+    if (event.touches.length === 2 && pinchStartDistance) {
+      event.preventDefault();
+      setScale(pinchStartScale * touchDistance(event.touches) / pinchStartDistance);
+    }
+  }, { passive: false });
+
+  documentViewport.addEventListener('touchend', (event) => {
+    if (event.touches.length < 2) pinchStartDistance = 0;
+  }, { passive: true });
+
+  documentViewport.addEventListener('dblclick', () => setScale(scale > 1 ? 1 : 2));
+  documentViewport.addEventListener('touchend', (event) => {
+    if (event.changedTouches.length !== 1) return;
+    const now = Date.now();
+    if (now - lastTap < 320) setScale(scale > 1 ? 1 : 2);
+    lastTap = now;
+  }, { passive: true });
+}
 
 document.querySelectorAll('[data-view]').forEach((button) => {
   button.addEventListener('click', () => {
@@ -66,10 +112,10 @@ document.querySelectorAll('[data-copy]').forEach((button) => {
 
       button.title = 'Скопировано';
       button.setAttribute('aria-label', 'Скопировано: ' + value);
-      button.classList.add('copied');
+      button.style.color = '#8b9096';
+      button.style.backgroundColor = 'transparent';
       window.setTimeout(() => {
         button.title = 'Скопировать';
-        button.classList.remove('copied');
       }, 1400);
     } catch (error) {
       console.error('Could not copy value:', error);

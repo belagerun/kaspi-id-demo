@@ -205,6 +205,21 @@ main {
   padding-left: 16px;
 }
 
+.requisites dd span { font-size: 13px !important; }
+.requisites .copy-button,
+.requisites .copy-button.copied,
+.requisites .copy-button:active,
+.requisites .copy-button:focus-visible {
+  color: #8b9096 !important;
+  background: transparent !important;
+}
+.view[data-panel="requisites"] .actions {
+  width: min(100%, 560px) !important;
+  padding-right: 16px !important;
+  padding-left: 16px !important;
+}
+.view[data-panel="requisites"] .actions .secondary { width: 100% !important; }
+
 .qr-dialog {
   position: fixed;
   inset: auto 0 0;
