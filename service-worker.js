@@ -1,48 +1,43 @@
-const CACHE_NAME = 'kaspi-id-v1';
-const ASSETS = [
-  './',
-  './v2/',
-  './index.html',
-  './style.css',
-  './script.js',
-  './060131500086-20250603111642292.pdf',
-  './afina.jpg',
-  './qr-icon.jpeg',
-  './send-icon.jpeg',
-  './qr_4783412.png',
-  './pwa.js',
-  './manifest.webmanifest',
-  './favicon.png',
-  './apple-touch-icon.png',
-  './icon-192.png',
-  './icon-512.png',
-  './v2/index.html',
-  './v2/style.css',
-  './v2/script.js',
-  './v2/udost_ai.jpg',
-  './v2/qr-icon.jpeg',
-  './v2/send-icon.jpeg',
-  './v2/qr_4783412.png',
-  './v2/060131500086-20250603111642292.pdf'
-];
+const CACHE_NAME = 'kaspi-id-v3';
 
 self.addEventListener('install', (event) => {
-  event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS)));
-  self.skipWaiting();
+  event.waitUntil(self.skipWaiting());
 });
 
 self.addEventListener('activate', (event) => {
-  event.waitUntil(
-    caches.keys().then((keys) => Promise.all(
-      keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))
-    ))
-  );
-  self.clients.claim();
+  event.waitUntil((async () => {
+    const cacheNames = await caches.keys();
+    await Promise.all(cacheNames.filter((name) => name !== CACHE_NAME).map((name) => caches.delete(name)));
+    await self.clients.claim();
+  })());
 });
 
 self.addEventListener('fetch', (event) => {
-  if (event.request.method !== 'GET') return;
-  event.respondWith(
-    caches.match(event.request).then((cached) => cached || fetch(event.request))
-  );
+  const request = event.request;
+  const url = new URL(request.url);
+  if (request.method !== 'GET' || url.origin !== self.location.origin) return;
+
+  if (request.mode === 'navigate') {
+    event.respondWith((async () => {
+      try {
+        const response = await fetch(request);
+        const cache = await caches.open(CACHE_NAME);
+        cache.put(request, response.clone());
+        return response;
+      } catch {
+        return (await caches.match(request)) || (await caches.match('./index.html'));
+      }
+    })());
+    return;
+  }
+
+  event.respondWith((async () => {
+    const cache = await caches.open(CACHE_NAME);
+    const cached = await cache.match(request);
+    if (cached) return cached;
+
+    const response = await fetch(request);
+    if (response.ok) await cache.put(request, response.clone());
+    return response;
+  })());
 });

@@ -7,6 +7,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="theme-color" content="#ffffff" />
   <title>Kaspi ID</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.png" type="image/png" />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 </head>
@@ -27,15 +29,15 @@
 </div>
 
 <div id="document" class="card">
-  <img src="afina.jpg" alt="Фото" class="photo" />
+  <img src="./afina.jpg" alt="Фото удостоверения" class="photo" />
   <div class="qr-code"></div>
   <div class="actions">
     <button class="primary">
-      <img src="qr-icon.jpeg" alt="QR" class="button-icon" />
+      <img src="./qr-icon.jpeg" alt="" class="button-icon" />
       Предъявить документ
     </button>
     <button class="secondary">
-      <img src="send-icon.jpeg" class="icon" alt="" />
+      <img src="./send-icon.jpeg" class="icon" alt="" />
       Отправить документ
     </button>
   </div>
@@ -59,7 +61,7 @@
 
   <div class="actions actions-lower">
     <button class="secondary">
-      <img src="send-icon.jpeg" class="icon" alt="" />
+      <img src="./send-icon.jpeg" class="icon" alt="" />
       Отправить документ
     </button>
   </div>
@@ -73,40 +75,15 @@
     <span class="close" onclick="closeModal()">×</span>
     <h2>Удостоверение личности</h2>
     <p>Покажите QR-код сотруднику</p>
-    <img src="qr_4783412.png" alt="QR-код" class="qr-img" />
+    <img src="./qr_4783412.png" alt="QR-код" class="qr-img" />
     <p style="margin-top: -20px; margin-bottom: 4px;">или скажите код</p>
     <div class="code">478341</div>
   </div>
 </div>
 
-<script>
-  function switchTab(tab) {
-    document.querySelectorAll('.tab').forEach((btn) => btn.classList.remove('active'));
-    document.querySelectorAll('.card').forEach((card) => (card.style.display = 'none'));
-    document.querySelector(`[onclick*="${tab}"]`).classList.add('active');
-    document.getElementById(tab).style.display = 'block';
-  }
-
-  // Все кнопки "Предъявить документ"
-  document.querySelectorAll('.primary').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      document.getElementById('qrModal').style.display = 'block';
-    });
-  });
-
-  function closeModal() {
-    document.getElementById('qrModal').style.display = 'none';
-  }
-</script>
-
-<script src="script.js"></script>
-<script src="pwa.js"></script>
-<script src="script.js"></script>
-<script src="pwa.js"></script>
+<script src="./script.js" defer></script>
+<script src="./pwa.js" defer></script>
 </body>
 </html>
 
 
-<!-- git add .
-git commit -m "Обновление дизайна"
-git push -->

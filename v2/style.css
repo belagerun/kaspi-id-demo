@@ -61,6 +61,8 @@ h1 {
   box-sizing: border-box;
 }
 
+.card[hidden] { display: none; }
+
 .photo {
   width: 100%;
   height: auto;

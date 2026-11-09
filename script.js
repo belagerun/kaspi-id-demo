@@ -1,30 +1,54 @@
-// Открытие QR-модального окна
+const documentCard = document.getElementById('document');
+const requisitesCard = document.getElementById('requisites');
+const qrModal = document.getElementById('qrModal');
+
+document.querySelectorAll('.tab').forEach((tab) => {
+  tab.addEventListener('click', () => {
+    const showRequisites = tab.textContent.trim() === 'Реквизиты';
+    documentCard.hidden = showRequisites;
+    requisitesCard.hidden = !showRequisites;
+    document.querySelectorAll('.tab').forEach((item) => {
+      item.classList.toggle('active', item === tab);
+    });
+  });
+});
+
+document.querySelectorAll('.primary').forEach((button) => {
+  button.addEventListener('click', () => {
+    qrModal.style.display = 'block';
+  });
+});
+
 function closeModal() {
-  document.getElementById('qrModal').style.display = 'none';
+  qrModal.style.display = 'none';
 }
 
-// Нажатие "Отправить документ" — делимся PDF или открываем его
-document.querySelector('.secondary').addEventListener('click', async () => {
-  const pdfUrl = '060131500086-20250603111642292.pdf'; // Имя файла — должен быть рядом с HTML
-  const pdfName = '060131500086-20250603111642292.pdf';
+qrModal.addEventListener('click', (event) => {
+  if (event.target === qrModal) closeModal();
+});
 
-  try {
-    const response = await fetch(pdfUrl);
-    if (!response.ok) throw new Error(`PDF request failed: ${response.status}`);
-    const blob = await response.blob();
-    const file = new File([blob], pdfName, { type: 'application/pdf' });
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') closeModal();
+});
 
-    if (navigator.canShare && navigator.canShare({ files: [file] })) {
-      await navigator.share({
-        title: 'Удостоверение личности',
-        text: 'Моё удостоверение личности',
-        files: [file],
-      });
-    } else {
-      window.location.href = pdfUrl;
+document.querySelectorAll('.secondary').forEach((button) => {
+  button.addEventListener('click', async () => {
+    const pdfName = '060131500086-20250603111642292.pdf';
+    const pdfUrl = new URL(pdfName, window.location.href).href;
+
+    try {
+      const response = await fetch(pdfUrl);
+      if (!response.ok) throw new Error(`PDF request failed: ${response.status}`);
+      const file = new File([await response.blob()], pdfName, { type: 'application/pdf' });
+
+      if (navigator.canShare?.({ files: [file] })) {
+        await navigator.share({ title: 'Удостоверение личности', files: [file] });
+      } else {
+        window.location.assign(pdfUrl);
+      }
+    } catch (error) {
+      console.error('Could not open or share the document:', error);
+      window.location.assign(pdfUrl);
     }
-  } catch (err) {
-    // alert('Не удалось поделиться файлом'); // убрали уведомление
-    console.error(err); // можно оставить для разработчика
-  }
+  });
 });
