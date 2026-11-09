@@ -1,4 +1,4 @@
-const CACHE_NAME = 'kaspi-id-single-folder-v9';
+const CACHE_NAME = 'kaspi-id-single-folder-v10';
 const CORE_FILES = [
   './',
   './index.html',
