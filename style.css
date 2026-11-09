@@ -86,7 +86,7 @@ main {
 
 .tab.active { color: #17191c; background: #fff; box-shadow: 0 1px 3px #0000001a; }
 
-.view[hidden] { display: none; }
+.view[hidden] { display: none !important; }
 
 .view {
   display: flex;
@@ -262,7 +262,7 @@ main {
   body { min-height: 0; height: 100%; }
   main { display: block; height: calc(100% - 52px); min-height: 0; overflow: visible; }
   .tabs { height: 42px; margin-top: 8px; margin-bottom: 10px; }
-  .view[data-panel="document"] { display: block; }
+  .view[hidden] { display: none !important; }
   .document-viewport {
     position: fixed;
     z-index: 1;
