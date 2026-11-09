@@ -137,14 +137,14 @@ main {
   position: fixed;
   z-index: 20;
   right: 0;
-  bottom: calc(14px + env(safe-area-inset-bottom));
+  bottom: env(safe-area-inset-bottom);
   left: 50%;
   width: min(100%, 560px);
   margin: 0;
-  padding: 14px 16px;
+  padding: 14px 16px 12px;
   transform: translateX(-50%);
   background: #fff;
-  border-top: 1px solid #f0f0f0;
+  border: 0;
 }
 
 .view[data-panel="document"] .actions,
@@ -174,23 +174,23 @@ main {
 .secondary { border: 1px solid #83b5ed; color: #1769c2; background: #fff; }
 .primary img, .secondary img { width: 20px; height: 22px; object-fit: contain; }
 
-.requisites { margin: 0 16px; padding: 12px 24px 0; border-radius: 8px; background: #fff; }
+.requisites { margin: 0 16px; padding: 12px 0 0; border-radius: 8px; background: #fff; }
 .requisites dl { margin: 0; }
-.requisites dl div { position: relative; padding: 18px 0; border-bottom: 0; }
+.requisites dl div { position: relative; min-height: 66px; padding: 11px 48px 11px 0; border-bottom: 0; }
 .requisites dl div:last-child { border-bottom: 0; }
-.requisites dt { margin: 0 56px 8px 0; color: #85898e; font-size: 15px; line-height: 1.2; }
+.requisites dt { margin: 0 0 7px; color: #85898e; font-size: 14px; font-weight: 400; line-height: 1.2; }
 .requisites dd {
   display: block;
   margin: 0;
-  font-size: 18px;
-  line-height: 1.25;
+  font-size: 16px;
+  line-height: 1.3;
   font-weight: 400;
 }
-.requisites dd span { min-width: 0; overflow-wrap: anywhere; font-size: 18px; line-height: 1.25; }
+.requisites dd span { min-width: 0; overflow-wrap: anywhere; }
 .copy-button {
   display: grid;
   position: absolute;
-  top: 18px;
+  top: 4px;
   right: 0;
   flex: 0 0 44px;
   width: 44px;
@@ -202,7 +202,7 @@ main {
   color: #8b9096;
   background: transparent;
 }
-.copy-button svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.copy-button svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .copy-button.copied { color: #8b9096; background: transparent; }
 .requisites .actions {
   margin: auto 0 0;
@@ -211,7 +211,6 @@ main {
   padding-left: 16px;
 }
 
-.requisites dd span { font-size: 18px !important; }
 .requisites .copy-button,
 .requisites .copy-button.copied,
 .requisites .copy-button:active,
@@ -266,22 +265,18 @@ main {
 @media (display-mode: standalone) {
   html, body { height: 100%; overflow: hidden; }
   body { min-height: 0; height: 100%; }
-  main { display: block; height: calc(100% - 52px); min-height: 0; overflow: visible; }
+  main { display: flex; flex: 1 1 auto; height: auto; min-height: 0; overflow: hidden; }
   main { width: 100%; max-width: none; }
   .tabs { height: 42px; margin-top: 24px; margin-bottom: 10px; }
   .view[hidden] { display: none !important; }
   .document-viewport {
-    position: fixed;
-    z-index: 1;
-    top: calc(env(safe-area-inset-top) + 112px);
-    right: 0;
-    bottom: calc(154px + env(safe-area-inset-bottom));
-    left: 0;
+    position: relative;
     width: 100%;
-    padding: 8px 12px 0;
+    padding: 8px 12px calc(154px + env(safe-area-inset-bottom));
     overflow-x: hidden;
     overflow-y: auto;
   }
   .identity-image { width: min(100%, 560px); height: auto; margin: 0 auto; }
   .actions { width: 100%; max-width: none; }
+  .requisites { overflow-y: auto; }
 }
