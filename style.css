@@ -258,6 +258,22 @@ main {
 }
 
 @media (display-mode: standalone) {
-  body { min-height: 100dvh; height: 100dvh; }
-  .document-viewport { min-height: 0; }
+  html, body { height: 100%; overflow: hidden; }
+  body { min-height: 0; height: 100%; }
+  main { display: block; height: calc(100% - 52px); min-height: 0; overflow: visible; }
+  .tabs { height: 42px; margin-top: 8px; margin-bottom: 10px; }
+  .view[data-panel="document"] { display: block; }
+  .document-viewport {
+    position: fixed;
+    z-index: 1;
+    top: calc(env(safe-area-inset-top) + 112px);
+    right: 0;
+    bottom: calc(154px + env(safe-area-inset-bottom));
+    left: 0;
+    width: 100%;
+    padding: 8px 12px 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  .identity-image { width: min(100%, 560px); height: auto; margin: 0 auto; }
 }
