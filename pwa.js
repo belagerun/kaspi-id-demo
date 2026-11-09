@@ -1,7 +1,8 @@
-if ('serviceWorker' in navigator && location.protocol === 'https:') {
+if ('serviceWorker' in navigator && window.isSecureContext) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register(new URL('./service-worker.js', document.currentScript.src), { scope: './' }).catch((error) => {
-      console.error('Service worker registration failed:', error);
-    });
+    const scriptUrl = document.currentScript?.src || document.querySelector('script[src*="pwa.js"]').src;
+    const workerUrl = new URL('service-worker.js', scriptUrl);
+    navigator.serviceWorker.register(workerUrl, { scope: new URL('./', scriptUrl).pathname })
+      .catch((error) => console.error('Offline support could not be enabled:', error));
   });
 }

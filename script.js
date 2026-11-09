@@ -1,41 +1,33 @@
-const documentCard = document.getElementById('document');
-const requisitesCard = document.getElementById('requisites');
-const qrModal = document.getElementById('qrModal');
+const rootPath = new URL('../', document.querySelector('link[rel="manifest"]').href);
+const pdfName = document.querySelector('meta[name="pdf-file"]').content;
+const pdfUrl = new URL(pdfName, rootPath).href;
+const qrDialog = document.querySelector('.qr-dialog');
 
-document.querySelectorAll('.tab').forEach((tab) => {
-  tab.addEventListener('click', () => {
-    const showRequisites = tab.textContent.trim() === 'Реквизиты';
-    documentCard.hidden = showRequisites;
-    requisitesCard.hidden = !showRequisites;
-    document.querySelectorAll('.tab').forEach((item) => {
-      item.classList.toggle('active', item === tab);
+document.querySelectorAll('[data-view]').forEach((button) => {
+  button.addEventListener('click', () => {
+    document.querySelectorAll('[data-view]').forEach((tab) => {
+      const active = tab === button;
+      tab.classList.toggle('active', active);
+      tab.setAttribute('aria-selected', String(active));
+    });
+    document.querySelectorAll('[data-panel]').forEach((panel) => {
+      panel.hidden = panel.dataset.panel !== button.dataset.view;
     });
   });
 });
 
-document.querySelectorAll('.primary').forEach((button) => {
-  button.addEventListener('click', () => {
-    qrModal.style.display = 'block';
-  });
+document.querySelectorAll('[data-action="show-qr"]').forEach((button) => {
+  button.addEventListener('click', () => qrDialog.showModal());
 });
 
-function closeModal() {
-  qrModal.style.display = 'none';
-}
+document.querySelector('[data-action="close-qr"]').addEventListener('click', () => qrDialog.close());
 
-qrModal.addEventListener('click', (event) => {
-  if (event.target === qrModal) closeModal();
+qrDialog.addEventListener('click', (event) => {
+  if (event.target === qrDialog) qrDialog.close();
 });
 
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') closeModal();
-});
-
-document.querySelectorAll('.secondary').forEach((button) => {
+document.querySelectorAll('[data-action="share"]').forEach((button) => {
   button.addEventListener('click', async () => {
-    const pdfName = '060131500086-20250603111642292.pdf';
-    const pdfUrl = new URL(pdfName, window.location.href).href;
-
     try {
       const response = await fetch(pdfUrl);
       if (!response.ok) throw new Error(`PDF request failed: ${response.status}`);
@@ -47,7 +39,7 @@ document.querySelectorAll('.secondary').forEach((button) => {
         window.location.assign(pdfUrl);
       }
     } catch (error) {
-      console.error('Could not open or share the document:', error);
+      console.error('Document sharing failed:', error);
       window.location.assign(pdfUrl);
     }
   });

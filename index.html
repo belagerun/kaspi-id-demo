@@ -1,89 +1,65 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-  <meta name="theme-color" content="#ffffff" />
-  <title>Kaspi ID</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="favicon.png" type="image/png" />
-  <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="document-image" content="afina.jpg">
+  <meta name="pdf-file" content="060131500086-20250603111642292.pdf">
+  <title>Удостоверение личности</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="icon" href="./favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <script src="./script.js" defer></script>
+  <script src="./pwa.js" defer></script>
 </head>
 <body>
-<header>
-  <button class="back-button">
-    <svg class="back-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-         fill="none" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <polyline points="15 18 9 12 15 6" />
-    </svg>
-  </button>
-  <h1>Удостоверение личности</h1>
-</header>
-
-<div class="tabs">
-  <button class="tab active" onclick="switchTab('document')">Документ</button>
-  <button class="tab" onclick="switchTab('requisites')">Реквизиты</button>
-</div>
-
-<div id="document" class="card">
-  <img src="./afina.jpg" alt="Фото удостоверения" class="photo" />
-  <div class="qr-code"></div>
-  <div class="actions">
-    <button class="primary">
-      <img src="./qr-icon.jpeg" alt="" class="button-icon" />
-      Предъявить документ
+  <header class="topbar">
+    <button class="back-button" type="button" aria-label="Назад" onclick="history.back()">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
     </button>
-    <button class="secondary">
-      <img src="./send-icon.jpeg" class="icon" alt="" />
-      Отправить документ
-    </button>
-  </div>
-</div>
+    <h1>Удостоверение личности</h1>
+  </header>
 
-<div id="requisites" class="card" style="display: none;">
-  <div class="photo" style="padding: 8px; font-size: 16px;">
-    <span class="label">ФИО</span><br />
-    Алибекова Афина Рысбековна<br /><br />
-    <span class="label">ИИН</span><br />
-    080815655309<br /><br />
-    <span class="label">Дата рождения</span><br />
-    05.08.2005<br /><br />
-    <span class="label">Номер документа</span><br />
-    059261766<br /><br />
-    <span class="label">Дата выдачи</span><br />
-    07.11.2024<br /><br />
-    <span class="label">Срок действия</span><br />
-    06.11.2034<br />
-  </div>
+  <main>
+    <nav class="tabs" aria-label="Разделы документа">
+      <button class="tab active" type="button" data-view="document">Документ</button>
+      <button class="tab" type="button" data-view="requisites">Реквизиты</button>
+    </nav>
 
-  <div class="actions actions-lower">
-    <button class="secondary">
-      <img src="./send-icon.jpeg" class="icon" alt="" />
-      Отправить документ
-    </button>
-  </div>
-</div>
+    <section class="view" data-panel="document">
+      <img class="identity-image" src="./afina.jpg" alt="Демонстрационное удостоверение личности" fetchpriority="high">
+      <div class="actions">
+        <button class="primary" type="button" data-action="show-qr"><img src="./qr-icon.jpeg" alt="">Предъявить документ</button>
+        <button class="secondary" type="button" data-action="share"><img src="./send-icon.jpeg" alt="">Отправить документ</button>
+      </div>
+    </section>
 
+    <section class="view requisites" data-panel="requisites" hidden>
+      <dl>
+        <div><dt>ФИО</dt><dd>Алибекова Афина Рысбековна</dd></div>
+        <div><dt>ИИН</dt><dd>080815655309</dd></div>
+        <div><dt>Дата рождения</dt><dd>05.08.2005</dd></div>
+        <div><dt>Номер документа</dt><dd>059261766</dd></div>
+        <div><dt>Дата выдачи</dt><dd>07.11.2024</dd></div>
+        <div><dt>Срок действия</dt><dd>06.11.2034</dd></div>
+      </dl>
+      <div class="actions">
+        <button class="secondary" type="button" data-action="share"><img src="./send-icon.jpeg" alt="">Отправить документ</button>
+      </div>
+    </section>
+  </main>
 
-
-<!-- Модальное окно с QR -->
-<div class="modal" id="qrModal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">×</span>
-    <h2>Удостоверение личности</h2>
+  <dialog class="qr-dialog" aria-labelledby="qr-title">
+    <button class="close" type="button" aria-label="Закрыть" data-action="close-qr">×</button>
+    <h2 id="qr-title">Удостоверение личности</h2>
     <p>Покажите QR-код сотруднику</p>
-    <img src="./qr_4783412.png" alt="QR-код" class="qr-img" />
-    <p style="margin-top: -20px; margin-bottom: 4px;">или скажите код</p>
-    <div class="code">478341</div>
-  </div>
-</div>
-
-<script src="./script.js" defer></script>
-<script src="./pwa.js" defer></script>
+    <img src="./qr_4783412.png" alt="Демонстрационный QR-код" class="qr-image">
+    <p>или скажите код</p>
+    <strong class="code">478341</strong>
+  </dialog>
 </body>
 </html>
-
-
