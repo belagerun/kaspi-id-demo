@@ -80,7 +80,7 @@ body {
   background: #f3f3f6;
   font-size: 15px;
 }
-.home-search svg { width: 18px; height: 18px; flex: 0 0 auto; fill: none; stroke: currentColor; stroke-width: 1.8; }
+.home-search-icon { width: 20px; height: 20px; flex: 0 0 auto; object-fit: contain; }
 .home-cart {
   position: relative;
   display: grid;
@@ -92,7 +92,7 @@ body {
   color: #737579;
   background: transparent;
 }
-.home-cart svg { width: 25px; height: 25px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.home-cart-icon { width: 27px; height: 27px; object-fit: contain; }
 .home-cart b {
   position: absolute;
   top: 1px;
@@ -190,6 +190,7 @@ body {
 }
 .service-icon svg { width: 29px; height: 29px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
 .service-icon.magnum-mark { border-radius: 4px; color: #fff; background: #c90058; font-size: 23px; font-weight: 800; line-height: 31px; }
+.service-icon-img { width: 34px; height: 34px; object-fit: contain; }
 
 .finance-grid {
   display: grid;
@@ -227,6 +228,7 @@ body {
 }
 .installment { background: #ef4249; }.credit { background: #92dc58; }.red { background: #e52d3a; }.deposit { background: #ffd321; }
 .finance-badge svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.finance-item .finance-badge { display: block; width: 47px; height: 41px; flex: 0 0 47px; border-radius: 5px; object-fit: contain; background: transparent; }
 
 .interior-banner {
   position: relative;
@@ -265,6 +267,7 @@ body {
 }
 .bottom-nav-item { position: relative; display: flex; align-items: center; flex-direction: column; gap: 3px; padding: 0; border: 0; color: #818286; background: transparent; font: inherit; font-size: 11px; line-height: 1.15; }
 .bottom-nav-item svg { width: 25px; height: 25px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.nav-icon { width: 25px; height: 25px; object-fit: contain; }
 .bottom-nav-item.active { color: #c7183b; }.bottom-nav-item i { position: absolute; top: -3px; right: calc(50% - 18px); display: grid; width: 15px; height: 15px; place-items: center; border-radius: 50%; color: #fff; background: #d5253e; font-size: 9px; font-style: normal; }
 
 .services-header {
@@ -292,7 +295,7 @@ body {
   color: #4a4c50;
   background: transparent;
 }
-.services-back svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.services-back img { width: 24px; height: 27px; object-fit: contain; }
 .services-content {
   display: block;
   flex: 1 1 auto;
@@ -338,7 +341,7 @@ body {
   background: #e9e9ed;
   font-size: 16px;
 }
-.services-search svg { width: 25px; height: 25px; fill: none; stroke: currentColor; stroke-width: 1.7; }
+.services-search img { width: 25px; height: 25px; object-fit: contain; }
 .services-documents {
   padding: 18px 16px 13px;
   background: #fff;
@@ -374,8 +377,9 @@ body {
 .identity-card-icon b { position: absolute; right: 8px; top: 12px; width: 22px; height: 4px; border-radius: 4px; background: #e3f4eb; box-shadow: 0 8px 0 #e3f4eb, 0 16px 0 #e3f4eb; }
 .student-card-icon { color: #fff; background: linear-gradient(135deg, #273d9d, #202f7b); }
 .student-card-icon svg { width: 33px; height: 33px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.service-document-icon { width: 63px; height: 45px; object-fit: contain; }
 .all-documents { display: flex; width: 100%; align-items: center; justify-content: space-between; margin-top: 15px; padding: 0; border: 0; color: #3779bf; background: transparent; font: inherit; font-size: 17px; text-align: left; }
-.all-documents span { font-size: 34px; font-weight: 300; line-height: 20px; }
+.all-documents img { width: 11px; height: 17px; object-fit: contain; }
 
 .service-categories {
   display: flex;
@@ -391,14 +395,14 @@ body {
 .service-categories::-webkit-scrollbar { display: none; }
 .category { display: flex; min-width: 75px; align-items: center; flex-direction: column; gap: 8px; padding: 0 0 8px; border: 0; border-bottom: 2px solid transparent; color: #696a6e; background: transparent; font: inherit; font-size: 13px; white-space: nowrap; }
 .category.active { border-bottom-color: #d22740; color: #c51d39; font-weight: 600; }
-.category-art { display: grid; width: 57px; height: 57px; place-items: center; border-radius: 16px; color: #fff; font-weight: 800; }
+.category-art { display: block; width: 57px; height: 57px; object-fit: contain; }
 .megaphone { background: linear-gradient(145deg, #fff0ec, #ead5c9); color: #e64239; font-size: 34px; transform: rotate(-20deg); }.certificate { background: #eef0ed; color: #42af45; font-size: 34px; }.car { background: #f0e9e7; color: #e64a43; font-size: 33px; }.house { background: #e6efef; color: #18a7b6; font-size: 37px; }.family { background: #eef0f1; color: #67bfc2; font-size: 28px; }
 
 .popular-services { margin-top: 11px; padding: 20px 16px 3px; background: #fff; }
 .popular-services h2 { margin: 0 0 15px; color: #28292d; font-size: 19px; font-weight: 650; }
 .popular-service { display: grid; grid-template-columns: 50px minmax(0, 1fr) 22px; width: 100%; align-items: center; gap: 11px; min-height: 75px; padding: 10px 0; border: 0; color: #38393d; background: transparent; font: inherit; text-align: left; }
-.popular-service > span:nth-child(2) { min-width: 0; }.popular-service b { display: block; font-size: 17px; font-weight: 500; line-height: 1.16; }.popular-service small { display: block; margin-top: 4px; color: #97989c; font-size: 13px; line-height: 1.25; }.popular-service i { color: #b8b9bd; font-size: 34px; font-style: normal; font-weight: 300; }
-.popular-icon { display: grid; width: 46px; height: 46px; place-items: center; color: #d22b42; }.popular-icon svg { width: 32px; height: 32px; fill: none; stroke: currentColor; stroke-width: 1.65; stroke-linecap: round; stroke-linejoin: round; }
+.popular-service > span:nth-child(2) { min-width: 0; }.popular-service b { display: block; font-size: 17px; font-weight: 500; line-height: 1.16; }.popular-service small { display: block; margin-top: 4px; color: #97989c; font-size: 13px; line-height: 1.25; }
+.popular-icon { display: block; width: 42px; height: 42px; object-fit: contain; }.service-chevron { width: 10px; height: 17px; object-fit: contain; }
 
 .topbar {
   position: relative;
@@ -425,7 +429,7 @@ h1 { margin: 0; font-size: 16px; font-weight: 650; text-align: center; }
   background: transparent;
 }
 
-.back-button svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.7; }
+.back-button img { width: 22px; height: 26px; object-fit: contain; }
 
 main {
   display: flex;
