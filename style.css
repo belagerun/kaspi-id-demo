@@ -28,6 +28,7 @@ body {
 }
 
 .screen { min-height: 0; }
+.screen[hidden] { display: none !important; }
 .home-screen {
   display: flex;
   flex: 1 1 auto;
@@ -103,9 +104,12 @@ body {
   margin: 0;
   padding: 0 16px 12px;
   overflow-y: auto;
+  scrollbar-width: none;
   overscroll-behavior: contain;
   background: #fff;
 }
+.home-content::-webkit-scrollbar { display: none; }
+.document-screen[hidden] .actions { display: none !important; }
 .promo-cards {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
