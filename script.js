@@ -130,6 +130,7 @@ document.querySelectorAll('[data-action="share"]').forEach((button) => {
         window.location.assign(pdfUrl);
       }
     } catch (error) {
+      if (error.name === 'AbortError') return;
       console.error('Document sharing failed:', error);
       window.location.assign(pdfUrl);
     }

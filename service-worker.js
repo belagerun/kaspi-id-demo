@@ -1,10 +1,15 @@
-const CACHE_NAME = 'kaspi-id-single-folder-v32';
+const CACHE_NAME = 'kaspi-id-single-folder-v33';
 const CORE_FILES = [
   './',
   './index.html',
-  './style.css?v=20261110-32',
-  './script.js?v=20261110-32',
-  './pwa.js?v=20261110-32',
+  './style.css?v=20261110-33',
+  './script.js?v=20261110-33',
+  './pwa.js?v=20261110-33',
+  './udost.jpeg',
+  './060131500086-20250603111642292.pdf',
+  './qr_4783412.png',
+  './qr-icon.jpeg',
+  './send-icon.jpeg',
   './manifest.webmanifest',
   './favicon.png',
   './apple-touch-icon.png',
@@ -87,7 +92,7 @@ self.addEventListener('install', (event) => {
 self.addEventListener('activate', (event) => {
   event.waitUntil((async () => {
     const keys = await caches.keys();
-    await Promise.all(keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key)));
+    await Promise.all(keys.filter((key) => key.startsWith('kaspi-id-single-folder-') && key !== CACHE_NAME).map((key) => caches.delete(key)));
     await self.clients.claim();
   })());
 });
