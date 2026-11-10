@@ -4,6 +4,36 @@ const pdfUrl = new URL(pdfName, appBase).href;
 const qrDialog = document.querySelector('.qr-dialog');
 const documentViewport = document.querySelector('.document-viewport');
 const documentImage = document.querySelector('.identity-image');
+const homeScreen = document.querySelector('[data-screen="home"]');
+const documentScreen = document.querySelector('[data-screen="document"]');
+
+function showScreen(name) {
+  const showHome = name === 'home';
+  homeScreen.hidden = !showHome;
+  documentScreen.hidden = showHome;
+
+  if (showHome) {
+    homeScreen.querySelector('.home-content')?.scrollTo({ top: 0, behavior: 'auto' });
+  } else {
+    documentViewport?.scrollTo({ top: 0, behavior: 'auto' });
+  }
+}
+
+document.querySelectorAll('[data-action="open-document"]').forEach((button) => {
+  button.addEventListener('click', () => showScreen('document'));
+});
+
+document.querySelectorAll('[data-action="back-home"]').forEach((button) => {
+  button.addEventListener('click', () => showScreen('home'));
+});
+
+document.querySelectorAll('[data-action="home-nav"]').forEach((button) => {
+  button.addEventListener('click', () => {
+    document.querySelectorAll('[data-action="home-nav"]').forEach((item) => {
+      item.classList.toggle('active', item === button);
+    });
+  });
+});
 
 if (documentViewport && documentImage) {
   let scale = 1;
