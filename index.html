@@ -9,139 +9,59 @@
   <meta name="document-image" content="udost.jpeg">
   <meta name="pdf-file" content="060131500086-20250603111642292.pdf">
   <title>Удостоверение личности</title>
-  <link rel="stylesheet" href="./style.css?v=20261110-33">
+  <link rel="stylesheet" href="./style.css?v=20261110-34">
   <link rel="icon" href="./favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="./apple-touch-icon.png">
   <link rel="manifest" href="./manifest.webmanifest">
-  <script src="./script.js?v=20261110-33" defer></script>
-  <script src="./pwa.js?v=20261110-33" defer></script>
+  <script src="./script.js?v=20261110-34" defer></script>
+  <script src="./pwa.js?v=20261110-34" defer></script>
 </head>
 <body>
   <section class="home-screen screen" data-screen="home">
     <header class="home-header">
-      <div class="home-search" role="search" aria-label="Поиск по Kaspi.kz">
-        <img class="home-search-icon" src="./assets/ui-clean/01_search.png" alt="">
-        <span>Поиск по Kaspi.kz</span>
-      </div>
-      <button class="home-cart" type="button" aria-label="Корзина">
-        <img class="home-cart-icon" src="./assets/ui-clean/02_cart_top.png" alt="">
-        <b>9</b>
-      </button>
+      <label class="home-search"><img class="home-search-icon" src="./assets/ui-kit/main/09_icon_search.png" alt=""><input type="search" placeholder="Поиск по Kaspi.kz" aria-label="Поиск сервисов" autocomplete="off"></label>
+      <button class="home-cart" type="button" aria-label="Корзина" data-demo="Корзина"><img class="home-cart-icon" src="./assets/ui-kit/main/10_icon_cart_top.png" alt=""><b>9</b></button>
     </header>
-
     <main class="home-content">
       <section class="promo-cards" aria-label="Предложения">
-        <article class="promo-card promo-furniture">
-          <span>Мебель</span>
-          <strong>0·0·12</strong>
-          <small>Рассрочка до 12 мес.</small>
-          <i class="chair chair-one" aria-hidden="true"></i><i class="chair chair-two" aria-hidden="true"></i>
-        </article>
-        <article class="promo-card promo-tech">
-          <span>ТВ, аудио, видео</span>
-          <strong>5% Бонусов</strong>
-          <small>15.12 – 31.12</small>
-          <i class="speaker" aria-hidden="true"></i><i class="watch" aria-hidden="true"></i>
-        </article>
+        <button class="promo-card" type="button" data-demo="Магазин"><img src="./assets/ui-kit/main/01_ad_banner_electronics.png" alt="Бытовая техника и электроника. Магазин на Kaspi.kz"></button>
+        <button class="promo-card" type="button" data-demo="Kaspi Travel"><img src="./assets/ui-kit/main/02_ad_banner_kaspi_travel.png" alt="Kaspi Travel. Авиа и ЖД билеты"></button>
       </section>
-
-      <section class="quick-services" aria-label="Сервисы">
-        <button class="quick-service" type="button"><img class="service-icon-img" src="./assets/ui-clean/04_shop.png" alt=""><span>Магазин</span></button>
-        <button class="quick-service" type="button"><img class="service-icon-img" src="./assets/ui-clean/05_my_bank.png" alt=""><span>Мой Банк</span></button>
-        <button class="quick-service" type="button"><img class="service-icon-img" src="./assets/ui-clean/06_payments.png" alt=""><span>Платежи</span></button>
-        <button class="quick-service" type="button"><img class="service-icon-img" src="./assets/ui-clean/07_transfers.png" alt=""><span>Переводы</span></button>
-        <button class="quick-service" type="button"><img class="service-icon-img" src="./assets/ui-clean/08_magnum.png" alt=""><span>Magnum</span></button>
-        <button class="quick-service" type="button"><img class="service-icon-img" src="./assets/ui-clean/09_travel.png" alt=""><span>Travel</span></button>
-        <button class="quick-service" type="button" data-action="open-services"><img class="service-icon-img" src="./assets/ui-clean/10_gov_services.png" alt=""><span>Госуслуги</span></button>
-        <button class="quick-service" type="button"><img class="service-icon-img" src="./assets/ui-clean/11_jobs.png" alt=""><span>Работа</span></button>
-      </section>
-
-      <section class="finance-grid" aria-label="Финансовые продукты">
-        <button type="button" class="finance-item"><img class="finance-badge" src="./assets/ui-clean/14_installment_0_0_12_red.png" alt=""><span>Рассрочка 0-0-12</span></button>
-        <button type="button" class="finance-item"><img class="finance-badge" src="./assets/ui-clean/15_credit_green.png" alt=""><span>Кредит <small>до 2 млн ₸</small></span></button>
-        <button type="button" class="finance-item"><img class="finance-badge" src="./assets/ui/14_red_plus.png" alt=""><span>Kaspi Red+ <small>Рассрочка до 500 000 ₸</small></span></button>
-        <button type="button" class="finance-item"><img class="finance-badge" src="./assets/ui-clean/13_deposit_tenge_dollar.png" alt=""><span>Накопительный <small>Депозит <b>20%</b></small></span></button>
-      </section>
-
-      <article class="interior-banner">
-        <div><strong>Ремонт<br>и интерьер мечты</strong><span>0·0·12</span></div>
-        <div class="sofa" aria-hidden="true"><i></i><i></i><b></b></div>
-        <div class="banner-dots" aria-hidden="true">••••••</div>
-      </article>
-
-      <section class="recent-products" aria-label="Недавно просмотренные">
-        <h2>Вы недавно смотрели</h2>
-        <div class="product-row"><article class="product-card product-paper"></article><article class="product-card product-folders"></article><article class="product-card product-phone"></article></div>
-      </section>
+      <section class="quick-services" aria-label="Сервисы"><button class="quick-service" type="button" data-demo="Магазин"><img class="service-icon-img" src="./assets/ui-kit/main/11_icon_shop.png" alt=""><span>Магазин</span></button><button class="quick-service" type="button" data-demo="Мой Банк"><img class="service-icon-img" src="./assets/ui-kit/main/12_icon_my_bank.png" alt=""><span>Мой Банк</span></button><button class="quick-service" type="button" data-demo="Платежи"><img class="service-icon-img" src="./assets/ui-kit/main/13_icon_payments.png" alt=""><span>Платежи</span></button><button class="quick-service" type="button" data-demo="Переводы"><img class="service-icon-img" src="./assets/ui-kit/main/14_icon_transfers.png" alt=""><span>Переводы</span></button><button class="quick-service" type="button" data-demo="Magnum"><img class="service-icon-img" src="./assets/ui-kit/main/15_icon_magnum.png" alt=""><span>Magnum</span></button><button class="quick-service" type="button" data-demo="Travel"><img class="service-icon-img" src="./assets/ui-kit/main/16_icon_travel.png" alt=""><span>Travel</span></button><button class="quick-service" type="button" data-action="open-services"><img class="service-icon-img" src="./assets/ui-kit/main/17_icon_gov_services.png" alt=""><span>Госуслуги</span></button><button class="quick-service" type="button" data-demo="Работа"><img class="service-icon-img" src="./assets/ui-kit/main/18_icon_jobs.png" alt=""><span>Работа</span></button></section>
+      <p class="home-search-empty empty-state" hidden>Сервисы не найдены</p>
+      <section class="finance-grid" aria-label="Финансовые продукты"><button class="finance-item" type="button" data-demo="Кредит на Покупки"><img class="finance-badge" src="./assets/ui-kit/main/27_badge_kredit_red.png" alt=""><span>Кредит на Покупки<small>Покупки в кредит</small></span></button><button class="finance-item" type="button" data-demo="Рассрочка 0-0-12"><img class="finance-badge" src="./assets/ui-kit/main/29_badge_0_0_12_red.png" alt=""><span>Рассрочка 0-0-12<small>Без переплаты</small></span></button><button class="finance-item" type="button" data-demo="Kaspi Депозит"><img class="finance-badge" src="./assets/ui-kit/main/28_badge_deposit_tenge_dollar.png" alt=""><span>Kaspi Депозит<small>Накопления</small></span></button><button class="finance-item" type="button" data-demo="Кредит Наличными"><img class="finance-badge" src="./assets/ui-kit/main/30_badge_credit_green.png" alt=""><span>Кредит Наличными<small>Онлайн</small></span></button></section>
+      <nav class="home-chips" aria-label="Подборки"><button class="home-chip active" type="button" data-home-filter="0" aria-pressed="true"><img src="./assets/ui-kit/main/35_chip_recommendations.png" alt="Рекомендации"></button><button class="home-chip" type="button" data-home-filter="1" aria-pressed="false"><img src="./assets/ui-kit/main/36_chip_discounts.png" alt="Акции"></button><button class="home-chip" type="button" data-home-filter="2" aria-pressed="false"><img src="./assets/ui-kit/main/37_chip_tours.png" alt="Туры"></button><button class="home-chip" type="button" data-home-filter="3" aria-pressed="false"><img src="./assets/ui-kit/main/41_icon_magnum_circle.png" alt=""><span>Magnum</span></button></nav>
+      <section class="recent-products" aria-label="Рекомендации"><h2>Рекомендуем</h2><div class="product-row"><button class="product-card" type="button" data-demo="Планшет с клавиатурой"><img src="./assets/ui-kit/main/42_ad_product_card_tablet_full.png" alt="Планшет с клавиатурой"><span>Планшет с клавиатурой</span></button><button class="product-card" type="button" data-demo="Электробритва"><img src="./assets/ui-kit/main/43_ad_product_card_shaver_full.png" alt="Электробритва"><span>Электробритва</span></button></div><p class="collection-note" hidden></p></section>
     </main>
-
-    <nav class="bottom-nav" aria-label="Главная навигация">
-      <button class="bottom-nav-item active" type="button" data-action="home-nav"><img class="nav-icon" src="./assets/ui-clean/24_home.png" alt=""><span>Главная</span></button>
-      <button class="bottom-nav-item" type="button" data-action="home-nav"><img class="nav-icon" src="./assets/ui-clean/25_kaspi_qr.png" alt=""><span>Kaspi QR</span></button>
-      <button class="bottom-nav-item" type="button" data-action="home-nav"><img class="nav-icon" src="./assets/ui-clean/26_messages.png" alt=""><i>1</i><span>Сообщения</span></button>
-      <button class="bottom-nav-item" type="button" data-action="home-nav"><img class="nav-icon" src="./assets/ui-clean/27_services.png" alt=""><span>Сервисы</span></button>
-    </nav>
+    <nav class="bottom-nav" aria-label="Главная навигация"><button class="bottom-nav-item active" type="button" data-action="back-home"><img class="nav-icon" src="./assets/ui-kit/main/48_icon_home.png" alt=""><span>Главная</span></button><button class="bottom-nav-item" type="button" data-demo="Kaspi QR"><img class="nav-icon" src="./assets/ui-kit/main/49_icon_kaspi_qr.png" alt=""><span>Kaspi QR</span></button><button class="bottom-nav-item" type="button" data-demo="Сообщения"><img class="nav-icon" src="./assets/ui-kit/main/50_icon_messages.png" alt=""><i>1</i><span>Сообщения</span></button><button class="bottom-nav-item" type="button" data-action="open-services"><img class="nav-icon" src="./assets/ui-kit/main/51_icon_services.png" alt=""><span>Сервисы</span></button></nav>
   </section>
 
   <section class="services-screen screen" data-screen="services" hidden>
-    <header class="services-header">
-      <button class="services-back" type="button" aria-label="Назад" data-action="back-home"><img src="./assets/gov/01_back_arrow.png" alt=""></button>
-      <h1>Госуслуги</h1>
-    </header>
-
+    <header class="services-header"><button class="services-back" type="button" aria-label="Назад" data-action="back-home"><img src="./assets/ui-kit/vectors/action_back_chevron.svg" alt=""></button><h1 tabindex="-1">Госуслуги</h1></header>
     <main class="services-content">
-      <nav class="services-tabs" aria-label="Разделы госуслуг">
-        <button class="active" type="button">Все услуги</button>
-        <button type="button">Мои заявки</button>
-      </nav>
-
-      <label class="services-search" aria-label="Поиск по госуслугам">
-        <img src="./assets/gov/02_search.png" alt="">
-        <span>Поиск по Госуслугам</span>
-      </label>
-
-      <section class="services-documents" aria-label="Документы">
-        <div class="document-cards">
-          <button class="service-document-card" type="button" data-action="open-document" data-origin="services">
-            <img class="service-document-icon" src="./assets/gov/03_id_card.png" alt="">
-            <span>Удостоверение<br>личности</span>
-          </button>
-          <button class="service-document-card" type="button">
-            <img class="service-document-icon" src="./assets/gov/04_student_id.png" alt="">
-            <span>Студенческий<br>билет</span>
-          </button>
-        </div>
-        <button class="all-documents" type="button">Все документы <img src="./assets/gov/05_chevron_blue.png" alt=""></button>
-      </section>
-
-      <section class="service-categories" aria-label="Категории услуг">
-        <button class="category active" type="button"><img class="category-art" src="./assets/gov/06_cat_popular.png" alt=""><span>Популярные</span></button>
-        <button class="category" type="button"><img class="category-art" src="./assets/gov/07_cat_certificates.png" alt=""><span>Справки</span></button>
-        <button class="category" type="button"><img class="category-art" src="./assets/gov/08_cat_auto.png" alt=""><span>Авто</span></button>
-        <button class="category" type="button"><img class="category-art" src="./assets/gov/09_cat_housing.png" alt=""><span>Жилье</span></button>
-        <button class="category" type="button"><img class="category-art" src="./assets/gov/10_cat_family.png" alt=""><span>Семья</span></button>
-      </section>
-
-      <section class="popular-services" aria-label="Популярные услуги">
-        <h2>Популярные услуги</h2>
-        <button class="popular-service" type="button"><img class="popular-icon" src="./assets/gov/11_self_employed.png" alt=""><span><b>Стать самозанятым</b><small>Открыть счет и начать принимать оплату в Kaspi.kz</small></span><img class="service-chevron" src="./assets/gov/14_chevron_gray.png" alt=""></button>
-        <button class="popular-service" type="button"><img class="popular-icon" src="./assets/gov/12_car_reregistration.png" alt=""><span><b>Переоформление автомобиля</b></span><img class="service-chevron" src="./assets/gov/14_chevron_gray.png" alt=""></button>
-        <button class="popular-service" type="button"><img class="popular-icon" src="./assets/gov/13_address_registration.png" alt=""><span><b>Прописка</b><small>Временная и постоянная</small></span><img class="service-chevron" src="./assets/gov/14_chevron_gray.png" alt=""></button>
-      </section>
+      <nav class="services-tabs" aria-label="Разделы госуслуг"><button class="active" type="button" data-services-tab="all" aria-pressed="true">Все услуги</button><button type="button" data-services-tab="applications" aria-pressed="false">Мои заявки</button></nav>
+      <div data-services-panel="all">
+        <label class="services-search"><img src="./assets/ui-kit/vectors/action_search_loupe.svg" alt=""><input type="search" placeholder="Поиск по Госуслугам" aria-label="Поиск по Госуслугам" autocomplete="off"></label>
+        <section class="services-documents" aria-label="Документы"><div class="document-cards"><button class="service-document-card" type="button" data-action="open-document" data-origin="services" aria-label="Удостоверение личности"><img class="service-document-icon" src="./assets/ui-kit/gov/10_badge_id_card_mini.png" alt=""><span>Удостоверение<br>личности</span></button><button class="service-document-card" type="button" data-action="open-passport" aria-label="Паспорт гражданина РК"><img class="service-document-icon" src="./assets/ui-kit/gov/11_badge_passport_rk_mini.png" alt=""><span>Паспорт<br>гражданина РК</span></button></div><button class="all-documents" type="button" data-action="all-documents">Все документы <img src="./assets/ui-kit/gov/13_icon_chevron_blue.png" alt=""></button></section>
+        <section class="service-categories" aria-label="Категории услуг"><button class="category active" type="button" data-category="popular" aria-pressed="true"><img class="category-art" src="./assets/gov/06_cat_popular.png" alt=""><span>Популярные</span></button><button class="category" type="button" data-category="certificates" aria-pressed="false"><img class="category-art" src="./assets/ui-kit/categories/category_07_spravki.png" alt=""><span>Справки</span></button><button class="category" type="button" data-category="auto" aria-pressed="false"><img class="category-art" src="./assets/ui-kit/categories/category_08_avto.png" alt=""><span>Авто</span></button><button class="category" type="button" data-category="housing" aria-pressed="false"><img class="category-art" src="./assets/ui-kit/categories/category_09_zhilye.png" alt=""><span>Жилье</span></button><button class="category" type="button" data-category="family" aria-pressed="false"><img class="category-art" src="./assets/ui-kit/categories/category_01_semya.png" alt=""><span>Семья</span></button><button class="category" type="button" data-category="health" aria-pressed="false"><img class="category-art" src="./assets/ui-kit/categories/category_02_zdorovye.png" alt=""><span>Здоровье</span></button><button class="category" type="button" data-category="benefits" aria-pressed="false"><img class="category-art" src="./assets/ui-kit/categories/category_03_posobiya.png" alt=""><span>Пособия</span></button><button class="category" type="button" data-category="business" aria-pressed="false"><img class="category-art" src="./assets/ui-kit/categories/category_04_biznes.png" alt=""><span>Бизнес</span></button><button class="category" type="button" data-category="payments" aria-pressed="false"><img class="category-art" src="./assets/ui-kit/categories/category_05_platezhi.png" alt=""><span>Платежи</span></button><button class="category" type="button" data-category="other" aria-pressed="false"><img class="category-art" src="./assets/ui-kit/categories/category_06_drugie.png" alt=""><span>Другие</span></button></section>
+        <section class="popular-services" aria-labelledby="services-heading"><h2 id="services-heading">Популярные услуги</h2><button class="popular-service" type="button" data-service="Стать самозанятым" data-categories="popular business"><img class="popular-icon" src="./assets/gov/11_self_employed.png" alt=""><span><b>Стать самозанятым</b><small>Открыть счет и начать принимать оплату в Kaspi.kz</small></span><img class="service-chevron" src="./assets/ui-kit/vectors/action_chevron_right.svg" alt=""></button><button class="popular-service" type="button" data-service="Переоформление автомобиля" data-categories="popular auto"><img class="popular-icon" src="./assets/ui-kit/gov/23_icon_car_reregistration.png" alt=""><span><b>Переоформление автомобиля</b></span><img class="service-chevron" src="./assets/ui-kit/vectors/action_chevron_right.svg" alt=""></button><button class="popular-service" type="button" data-service="Прописка" data-categories="popular housing family"><img class="popular-icon" src="./assets/ui-kit/gov/17_icon_address_registration.png" alt=""><span><b>Прописка</b><small>Временная и постоянная</small></span><img class="service-chevron" src="./assets/ui-kit/vectors/action_chevron_right.svg" alt=""></button><button class="popular-service" type="button" data-service="Справки по недвижимости" data-categories="certificates housing" hidden><img class="popular-icon" src="./assets/ui-kit/vectors/icon_service_nedvizhimost.svg" alt=""><span><b>Справки по недвижимости</b></span><img class="service-chevron" src="./assets/ui-kit/vectors/action_chevron_right.svg" alt=""></button><button class="popular-service" type="button" data-service="Социальные справки" data-categories="certificates benefits family" hidden><img class="popular-icon" src="./assets/ui-kit/gov/20_icon_benefits_payments.png" alt=""><span><b>Социальные справки</b></span><img class="service-chevron" src="./assets/ui-kit/vectors/action_chevron_right.svg" alt=""></button><button class="popular-service" type="button" data-service="Медицинские справки" data-categories="certificates health" hidden><img class="popular-icon" src="./assets/ui-kit/vectors/icon_service_meditsina.svg" alt=""><span><b>Медицинские справки</b></span><img class="service-chevron" src="./assets/ui-kit/vectors/action_chevron_right.svg" alt=""></button><button class="popular-service" type="button" data-service="Замена техпаспорта" data-categories="auto" hidden><img class="popular-icon" src="./assets/ui-kit/gov/23_icon_car_reregistration.png" alt=""><span><b>Замена техпаспорта</b></span><img class="service-chevron" src="./assets/ui-kit/vectors/action_chevron_right.svg" alt=""></button><button class="popular-service" type="button" data-service="Штрафы" data-categories="auto payments" hidden><img class="popular-icon" src="./assets/ui-kit/gov/14_icon_certificates.png" alt=""><span><b>Штрафы</b></span><img class="service-chevron" src="./assets/ui-kit/vectors/action_chevron_right.svg" alt=""></button><button class="popular-service" type="button" data-service="Проверка прописки" data-categories="housing family" hidden><img class="popular-icon" src="./assets/ui-kit/vectors/icon_service_propiska.svg" alt=""><span><b>Проверка прописки</b></span><img class="service-chevron" src="./assets/ui-kit/vectors/action_chevron_right.svg" alt=""></button><button class="popular-service" type="button" data-service="Снятие с прописки" data-categories="housing other" hidden><img class="popular-icon" src="./assets/ui-kit/vectors/icon_service_propiska.svg" alt=""><span><b>Снятие с прописки</b></span><img class="service-chevron" src="./assets/ui-kit/vectors/action_chevron_right.svg" alt=""></button><p class="services-empty empty-state" hidden>Услуги не найдены</p></section>
+      </div>
+      <section class="applications-empty empty-state" data-services-panel="applications" hidden><h2>Заявок пока нет</h2><p>В демоверсии заявки не отправляются.</p></section>
     </main>
+    <nav class="bottom-nav" aria-label="Главная навигация"><button class="bottom-nav-item" type="button" data-action="back-home"><img class="nav-icon" src="./assets/ui-kit/gov/28_icon_home_gray.png" alt=""><span>Главная</span></button><button class="bottom-nav-item" type="button" data-demo="Kaspi QR"><img class="nav-icon" src="./assets/ui-kit/gov/29_icon_kaspi_qr.png" alt=""><span>Kaspi QR</span></button><button class="bottom-nav-item" type="button" data-demo="Сообщения"><img class="nav-icon" src="./assets/ui-kit/gov/30_icon_messages.png" alt=""><i>1</i><span>Сообщения</span></button><button class="bottom-nav-item active" type="button" data-action="open-services"><img class="nav-icon" src="./assets/ui-kit/gov/31_icon_services_red.png" alt=""><span>Сервисы</span></button></nav>
+  </section>
 
-    <nav class="bottom-nav" aria-label="Главная навигация">
-      <button class="bottom-nav-item" type="button" data-action="back-home"><img class="nav-icon" src="./assets/gov/15_home.png" alt=""><span>Главная</span></button>
-      <button class="bottom-nav-item" type="button"><img class="nav-icon" src="./assets/gov/16_kaspi_qr.png" alt=""><span>Kaspi QR</span></button>
-      <button class="bottom-nav-item" type="button"><img class="nav-icon" src="./assets/gov/17_messages.png" alt=""><i>1</i><span>Сообщения</span></button>
-      <button class="bottom-nav-item active" type="button"><img class="nav-icon" src="./assets/gov/18_services.png" alt=""><span>Сервисы</span></button>
-    </nav>
+  <section class="egov-screen screen" data-screen="egov" aria-label="Открытие цифрового документа" hidden>
+    <button class="egov-close" type="button" data-action="cancel-document" aria-label="Закрыть"><img src="./assets/ui-kit/vectors/action_close_cross.svg" alt=""></button>
+    <div class="egov-lockup" aria-label="eGov плюс Kaspi"><span class="egov-circle"><img src="./assets/ui-kit/splash/egov-mark.png" alt="eGov"></span><span class="egov-plus" aria-hidden="true">+</span><img class="kaspi-mark" src="./assets/ui-kit/splash/kaspi-mark.png" alt="Kaspi"></div>
+    <p class="visually-hidden" role="status">Открываем демонстрационное удостоверение личности</p>
+    <p class="egov-footer">При поддержке Министерства<br>цифрового развития</p>
   </section>
 
   <section class="document-screen screen" data-screen="document" hidden>
   <header class="topbar">
     <button class="back-button" type="button" aria-label="Назад" data-action="back-from-document">
-      <img src="./assets/gov/01_back_arrow.png" alt="">
+      <img src="./assets/ui-kit/vectors/action_back_chevron.svg" alt="">
     </button>
     <h1>Удостоверение личности</h1>
   </header>
@@ -186,5 +106,9 @@
     <p>или скажите код</p>
     <strong class="code">478341</strong>
   </dialog>
+
+  <dialog class="documents-dialog" aria-labelledby="documents-title"><button class="close" type="button" data-close-dialog aria-label="Закрыть">×</button><h2 id="documents-title">Цифровые документы</h2><div class="document-cards"><button class="service-document-card" type="button" data-action="open-document" data-origin="services" aria-label="Удостоверение личности"><img class="service-document-icon" src="./assets/ui-kit/gov/10_badge_id_card_mini.png" alt=""><span>Удостоверение<br>личности</span></button><button class="service-document-card" type="button" data-action="open-passport" aria-label="Паспорт гражданина РК"><img class="service-document-icon" src="./assets/ui-kit/gov/11_badge_passport_rk_mini.png" alt=""><span>Паспорт<br>гражданина РК</span></button></div></dialog>
+  <dialog class="info-dialog" aria-labelledby="info-title"><button class="close" type="button" data-close-dialog aria-label="Закрыть">×</button><img class="info-icon" src="./assets/ui-kit/gov/11_badge_passport_rk_mini.png" alt=""><h2 id="info-title">Паспорт гражданина РК</h2><p class="info-description">В демоверсии паспорт пока не загружен.</p><button class="secondary" type="button" data-close-dialog>Понятно</button></dialog>
+  <p class="demo-toast" role="status" hidden></p>
 </body>
 </html>
