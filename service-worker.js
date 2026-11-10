@@ -1,10 +1,10 @@
-const CACHE_NAME = 'kaspi-id-single-folder-v31';
+const CACHE_NAME = 'kaspi-id-single-folder-v32';
 const CORE_FILES = [
   './',
   './index.html',
-  './style.css?v=20261110-31',
-  './script.js?v=20261110-31',
-  './pwa.js?v=20261110-31',
+  './style.css?v=20261110-32',
+  './script.js?v=20261110-32',
+  './pwa.js?v=20261110-32',
   './manifest.webmanifest',
   './favicon.png',
   './apple-touch-icon.png',
@@ -49,7 +49,34 @@ const CORE_FILES = [
   './assets/gov/15_home.png',
   './assets/gov/16_kaspi_qr.png',
   './assets/gov/17_messages.png',
-  './assets/gov/18_services.png'
+  './assets/gov/18_services.png',
+  './assets/ui-clean/01_search.png',
+  './assets/ui-clean/02_cart_top.png',
+  './assets/ui-clean/03_travel_banner_icon.png',
+  './assets/ui-clean/04_shop.png',
+  './assets/ui-clean/05_my_bank.png',
+  './assets/ui-clean/06_payments.png',
+  './assets/ui-clean/07_transfers.png',
+  './assets/ui-clean/08_magnum.png',
+  './assets/ui-clean/09_travel.png',
+  './assets/ui-clean/10_gov_services.png',
+  './assets/ui-clean/11_jobs.png',
+  './assets/ui-clean/12_kredit_red.png',
+  './assets/ui-clean/13_deposit_tenge_dollar.png',
+  './assets/ui-clean/14_installment_0_0_12_red.png',
+  './assets/ui-clean/15_credit_green.png',
+  './assets/ui-clean/16_icon_discounts_percent.png',
+  './assets/ui-clean/17_icon_tours_fire.png',
+  './assets/ui-clean/18_icon_magnum_circle.png',
+  './assets/ui-clean/19_chip_recommendations.png',
+  './assets/ui-clean/20_chip_discounts.png',
+  './assets/ui-clean/21_chip_tours.png',
+  './assets/ui-clean/22_favorite_heart.png',
+  './assets/ui-clean/23_discount_15_percent.png',
+  './assets/ui-clean/24_home.png',
+  './assets/ui-clean/25_kaspi_qr.png',
+  './assets/ui-clean/26_messages.png',
+  './assets/ui-clean/27_services.png'
 ];
 
 self.addEventListener('install', (event) => {
