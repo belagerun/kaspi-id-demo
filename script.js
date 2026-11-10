@@ -5,26 +5,41 @@ const qrDialog = document.querySelector('.qr-dialog');
 const documentViewport = document.querySelector('.document-viewport');
 const documentImage = document.querySelector('.identity-image');
 const homeScreen = document.querySelector('[data-screen="home"]');
+const servicesScreen = document.querySelector('[data-screen="services"]');
 const documentScreen = document.querySelector('[data-screen="document"]');
+let documentReturnScreen = 'services';
 
 function showScreen(name) {
-  const showHome = name === 'home';
-  homeScreen.hidden = !showHome;
-  documentScreen.hidden = showHome;
+  homeScreen.hidden = name !== 'home';
+  servicesScreen.hidden = name !== 'services';
+  documentScreen.hidden = name !== 'document';
 
-  if (showHome) {
+  if (name === 'home') {
     homeScreen.querySelector('.home-content')?.scrollTo({ top: 0, behavior: 'auto' });
+  } else if (name === 'services') {
+    servicesScreen.querySelector('.services-content')?.scrollTo({ top: 0, behavior: 'auto' });
   } else {
     documentViewport?.scrollTo({ top: 0, behavior: 'auto' });
   }
 }
 
+document.querySelectorAll('[data-action="open-services"]').forEach((button) => {
+  button.addEventListener('click', () => showScreen('services'));
+});
+
 document.querySelectorAll('[data-action="open-document"]').forEach((button) => {
-  button.addEventListener('click', () => showScreen('document'));
+  button.addEventListener('click', () => {
+    documentReturnScreen = button.dataset.origin || 'services';
+    showScreen('document');
+  });
 });
 
 document.querySelectorAll('[data-action="back-home"]').forEach((button) => {
   button.addEventListener('click', () => showScreen('home'));
+});
+
+document.querySelectorAll('[data-action="back-from-document"]').forEach((button) => {
+  button.addEventListener('click', () => showScreen(documentReturnScreen));
 });
 
 document.querySelectorAll('[data-action="home-nav"]').forEach((button) => {
