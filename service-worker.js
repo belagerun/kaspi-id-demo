@@ -1,10 +1,10 @@
-const CACHE_NAME = 'kaspi-id-single-folder-v35';
+const CACHE_NAME = 'kaspi-id-single-folder-v36';
 const CORE_FILES = [
   './',
   './index.html',
-  './style.css?v=20261110-35',
-  './script.js?v=20261110-35',
-  './pwa.js?v=20261110-35',
+  './style.css?v=20261110-36',
+  './script.js?v=20261110-36',
+  './pwa.js?v=20261110-36',
   './manifest.webmanifest',
   './favicon.png',
   './apple-touch-icon.png',
